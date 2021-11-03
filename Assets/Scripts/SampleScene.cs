@@ -6,6 +6,12 @@ public class SampleScene : MonoBehaviour
 {
     void Start()
     {
-        PopupManager.Instance.Load<APopup>();
+        StartCoroutine(CoLoad());
+
+        IEnumerator CoLoad()
+        {
+            var op = PopupManager.Instance.Load<APopup>();
+            yield return op;
+        }
     }
 }

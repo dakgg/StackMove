@@ -36,9 +36,10 @@ public abstract class PopupLoadOperationBase : CustomYieldInstruction
     }
 }
 
-public class PopupLoadOperation<T> : PopupLoadOperationBase
+public class PopupLoadOperation<T> : PopupLoadOperationBase where T : PopupBase
 {
-
+    public T Result => m_Loaded as T;
+    public T GetResult() => m_Loaded as T;
 }
 
 
